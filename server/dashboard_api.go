@@ -333,3 +333,21 @@ func (svr *Service) APIProxyTraffic(w http.ResponseWriter, r *http.Request) {
 	buf, _ := json.Marshal(&trafficResp)
 	res.Msg = string(buf)
 }
+
+//type AllotPortReq struct {
+//	ProxyType  string `json:"type"`
+//	UsedType   uint32 `json:"used_type"` //用途：0=UsedClient=client,1=UsedSSH=ssh
+//	ServerUid  string `json:"server_uid"`
+//	RemoteName string `json:"remote_name"`
+//	RemoteIp   string `json:"remote_ip"`
+//	RemotePort int    `json:"remote_port"`
+//	Sign       string `json:"sign"`
+//}
+
+func (svr *Service) APIAllowPort(w http.ResponseWriter, r *http.Request) {
+
+	//this.checkError(json.Unmarshal(r.GetBody, req))
+
+	AddProxyByApi()
+	w.Write([]byte(r.Host))
+}
